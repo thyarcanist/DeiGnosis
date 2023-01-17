@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6367e824b209b3a418191a2682ccfea1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - GhostBox(thyArcanist)
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: eb36fbeaedd1e2947a0fe59b1a124d03, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
