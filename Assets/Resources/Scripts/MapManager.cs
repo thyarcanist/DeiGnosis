@@ -1,16 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
     public GameObject Maps;
     public GameObject kyMap;
-    public GameObject usaMap;
-
+    public GameObject usaMap; // not used yet
     public GameObject localMap;
 
     public GameObject playerPOS;
+    public int maxLocationCount;
+    public int minLocationCount;
+
+    public bool bIsTraversing;
+    public float travelSpeed;
+
+    public Transform _nextNode;
+    public Transform _pastNode;
+    public Transform currentNode;
+    public Transform[] surroundingNodes;
 
     private bool isMapOpen = false;
     private void Update()
@@ -58,13 +65,20 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    private int randomNode;
+    public void UnitIsTraveling(bool areTheyTraveling)
+    {
+        if (areTheyTraveling)
+        {
+            Mathf.Lerp(currentNode.localPosition.x, _nextNode.localPosition.x, travelSpeed);
+            if (currentNode.position == _nextNode.position)
+            {
+                _pastNode = currentNode;
+                currentNode = surroundingNodes[randomNode];
+            }
+        }
+    }
 }
-
-public class LocationSpawner : MonoBehaviour
-{
-    public List<Location> Spaces;
-}
-
 
 public enum LocationDimensions
 {
@@ -88,8 +102,6 @@ public class LocationSize
         bool isGeneratingLot = newLotGeneration;
         int _rInt = Random.Range(0, 3);
 
-        return loadedSpace;
-
-       
+        return loadedSpace; 
     }
 }
